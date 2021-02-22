@@ -1,2 +1,2 @@
-# securities-firm-analysis
-Analyze review data of securities companies.
+# investment-corp-analysis
+Analyze review data of investment corp
