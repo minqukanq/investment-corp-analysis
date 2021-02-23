@@ -16,16 +16,16 @@ def crawl_google_playstore(url, driverPath):
     while True:
         for i in range(4):
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(SCROLL_PAUSE_TIME)
+            time.sleep(scroll_pause_time)
 
-        driver.find_element_by_xpath("//span[@class='RveJvd snByac']").click()
+        if driver.find_elements_by_xpath("//span[@class='RveJvd snByac']"):
+            driver.find_element_by_xpath("//span[@class='RveJvd snByac']").click()
         
-        new_height = driver.execute_script("return document.body.scrollHeight")
-        if new_height == last_height:
+        else:
             break
-        last_height = new_height
         
     # Spread long reviews
+    driver.execute_script("window.scrollTo(document.body.scrollHeight, 0)")
     spread_review = driver.find_elements_by_xpath("//button[@jsaction='click:TiglPc']")
     for i in range(len(spread_review)):
         isTrue = spread_review[i].is_displayed()
@@ -38,22 +38,17 @@ def crawl_google_playstore(url, driverPath):
             
     # Separate short and long reviews
     reviews = driver.find_elements_by_xpath("//span[contains(@jsname, 'bN97Pc')]")
-    for i in range(len(reviews)):
-        print(str(i) + "\t" + reviews[i].text)
-    
     long_reviews = driver.find_elements_by_xpath("//span[@jsname='fbQN7e']")
-    for i in range(len(reviews)):
-        print(str(i) + "\t" + long_reviews[i].text)
         
     # Merge all reviews
     merged_review = [t.text if t.text!='' else long_reviews[i].text for i, t in enumerate(reviews)]
 
-    # Crawl dates, likes, and rating scores
+    # Scrape dates, likes, and rating scores
     dates = driver.find_elements_by_xpath("//span[@class='p2TkOb']")
     likes = driver.find_elements_by_xpath("//div[@aria-label='이 리뷰가 유용하다는 평가를 받은 횟수입니다.']")
     stars = driver.find_elements_by_xpath("//span[@class='nt2C1d']/div[@class='pf5lIe']/div[@role='img']")
     
-    # Make dataframe
+    # Make a dataframe
     res_dict = []
     for i in range(len(merged_review)):
         res_dict.append({
@@ -64,4 +59,5 @@ def crawl_google_playstore(url, driverPath):
         })
     
     res_df = pd.DataFrame(res_dict)
-    res_df
+    
+    return res_df
