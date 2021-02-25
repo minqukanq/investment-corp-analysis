@@ -6,7 +6,8 @@ A simple way to crawl Google Play Store reviews from python using Selenium and B
 
 Install with pip
 
-```d 
+```
+pip install pandas
 pip install selenium
 pip install beautifulsoup4
 pip install lxml
