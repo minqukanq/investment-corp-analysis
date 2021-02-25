@@ -1,0 +1,1 @@
+python play-store-webcrawler.py --url "https://play.google.com/store/apps/details?id=com.linkzen.app&showAllReviews=true" --chrome chromedriver.exe --save_dir kiwoom.csv
