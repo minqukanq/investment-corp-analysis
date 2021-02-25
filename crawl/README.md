@@ -33,7 +33,11 @@ optional arguments:
   --save_dir SAVE_DIR  	  Crawled data filename, ex) 'output.csv'
 ```
 
-We now have a data
+## Running a Python script:
+```
+python play-store-webcrawler.py --url "https://play.google.com/store/apps/details?id=com.daou.herosw&showAllReviews=true" --chrome chromedriver.exe --save_dir kiwoom.csv
+```
+We now have a data.
 
 | DATE      | STAR                              | LIKE | REVIEW                                                       |
 | --------- | --------------------------------- | ---- | ------------------------------------------------------------ |
