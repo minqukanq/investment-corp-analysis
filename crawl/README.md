@@ -19,7 +19,7 @@ pip install lxml
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-The code may not work on Windows.
+The code may not work on Linux or Mac os.
 
 ```
 python play-store-webcrawler.py --url "URL" --chrome "Chrome driver dir path" \
