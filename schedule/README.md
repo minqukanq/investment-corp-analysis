@@ -1,4 +1,4 @@
-# To-do
+# todo
 1. 교수님 contact 후 모델링 관련 조언 받기  
 2. 변수 선정 정교화  
 * 현재 IV: Sentiment Scores of Reviews, 코스피ㆍ코스닥 지수, 기준금리, 환율, 국내기업 수출 실적, GDP, 거래대금, 수수료율  
