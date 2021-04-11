@@ -36,7 +36,7 @@ optional arguments:
 
 ## Running a Python script:
 ```
-python play-store-webcrawler.py --url "https://play.google.com/store/apps/details?id=com.daou.herosw&showAllReviews=true" --chrome chromedriver.exe --save_dir kiwoom.csv
+python play-store-webcrawler.py --url "https://play.google.com/store/apps/details?id=com.kakaobank.channel&showAllReviews=true" --chrome chromedriver.exe --save_dir kakao_bank.csv
 ```
 We now have a data.
 
